@@ -3,8 +3,7 @@ import { CartContext } from '../context/cart';
 import {UserContext} from '../context/user';
 import {useHistory } from 'react-router-dom';
 import EmptyCart from '../components/Cart/EmptyCart';
-import {CardElement,StripeProvider,Elements,injectStripe}
-from 'react-stripe-elements';
+import {CardElement,StripeProvider,Elements,injectStripe} from 'react-stripe-elements';
 import submitOrder from '../strapi/submitOrder';
 
 
@@ -21,14 +20,13 @@ function Checkout(props) {
   async function handleSubmit(e){
     e.preventDefault();
     showAlert({msg:'submitting order please wait...'});
-    const response=await props.stripe
-    .createToken()
-    .catch(error=>console.log(error));
+    const response=await props.stripe.createToken().catch(error=>console.log(error));
     const {token}=response;
+    console.log(response);
     if (token){
       setError('');
       const {id}=token;
-      let order=await submitOrder({Name:name,
+      let order=await submitOrder({name:name,
       total:total,
       items:cart,
       stripeTokenId:id,

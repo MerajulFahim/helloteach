@@ -4,7 +4,7 @@ import React from 'react'
 
 function getCartFromLocalStorage(){
     return (localStorage.getItem("cart")?
-    JSON.parse(localStorage.getItem('cart')):
+    JSON.parse(localStorage.getItem("cart")):
     []);
 }
 const CartContext = React.createContext();
@@ -15,7 +15,7 @@ const [cartItems,setCartItems]=React.useState(0);
 
 React.useEffect(()=>{
 //local storage
-localStorage.setItem('cart',JSON.stringify(cart));
+localStorage.setItem("cart",JSON.stringify(cart));
 
 
 let newCartItems=cart.reduce((total,cartItem)=>{

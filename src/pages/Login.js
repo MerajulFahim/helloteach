@@ -11,7 +11,6 @@ export default function Login() {
   const history=useHistory();
   //setup user context
   const {userLogin,alert,showAlert}=React.useContext(UserContext);
-console.log(userLogin);
 
 
   //state values

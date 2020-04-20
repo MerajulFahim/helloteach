@@ -3,6 +3,8 @@ import React from 'react';
 const UserContext= React.createContext();
 function getUserFromLocalStorage(){
     return localStorage.getItem('user')?JSON.parse(localStorage.getItem('user')):{username:null,token:null};
+    console.log(getUserFromLocalStorage());
+
 }
 
 function UserProvider({children}){
@@ -11,7 +13,6 @@ function UserProvider({children}){
 
     const userLogin=(user)=>{
         setUser(user);
-        console.log(user)
         localStorage.setItem('user',JSON.stringify(user));
     }
 

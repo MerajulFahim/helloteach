@@ -2,13 +2,13 @@
 import axios from 'axios';
 import url from '../utils/URL'
 
-async function submitOrder({Name,
+async function submitOrder({name,
     total,
     items,
     stripeTokenID,
     userToken}){
         const response= await axios.post(`${url}/orders`,
-        {Name,
+        {name,
         total,
         items,
         stripeTokenID
