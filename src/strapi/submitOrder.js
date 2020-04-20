@@ -5,13 +5,13 @@ import url from '../utils/URL'
 async function submitOrder({name,
     total,
     items,
-    stripeTokenID,
+    stripeTokenId,
     userToken}){
         const response= await axios.post(`${url}/orders`,
         {name,
         total,
         items,
-        stripeTokenID
+        stripeTokenId
         },
         {
         headers:{
